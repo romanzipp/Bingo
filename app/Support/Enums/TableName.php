@@ -13,4 +13,6 @@ class TableName extends AbstractEnum
     public const GAME_GAMES = 'game-games';
     public const GAME_BOARDS = 'game-boards';
     public const GAME_CARDS = 'game-cards';
+
+    public const GAME_PIVOT_BOARD_CARD = 'game-board_card';
 }

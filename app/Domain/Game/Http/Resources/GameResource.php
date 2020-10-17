@@ -19,6 +19,10 @@ class GameResource extends AbstractResource
 
             'secret' => $game->wasRecentlyCreated ? $game->secret : null,
 
+            'cards' => CardResource::collection(
+                $this->whenLoaded('cards')
+            ),
+
             $this->withDates(),
         ];
     }

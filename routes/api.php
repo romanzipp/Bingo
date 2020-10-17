@@ -23,3 +23,13 @@ Route::prefix('boards')->group(function () {
     Route::post('', \Domain\Game\Http\Controllers\Api\Boards\StoreBoardController::class);
 
 });
+
+Route::prefix('board-cards')->group(function () {
+
+    Route::prefix('{boardCard}')->group(function () {
+
+        Route::patch('', \Domain\Game\Http\Controllers\Api\BoardCards\UpdateBoardCardController::class);
+
+    });
+
+});

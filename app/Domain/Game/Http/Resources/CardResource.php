@@ -6,6 +6,8 @@ use Support\Http\Resources\AbstractResource;
 
 class CardResource extends AbstractResource
 {
+    public static $wrap = 'card';
+
     public function toArray($request)
     {
         /** @var \Domain\Game\Models\Card $card */
@@ -15,6 +17,10 @@ class CardResource extends AbstractResource
 
             'id' => $card->id,
             'title' => $card->title,
+
+            'game' => new GameResource(
+                $this->whenLoaded('game')
+            ),
 
             $this->mergeWhen($card->pivot, fn() => [
                 'pivot' => [

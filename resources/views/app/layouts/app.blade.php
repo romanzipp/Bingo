@@ -9,13 +9,9 @@
     <link href="{{ manifest('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body>
+<body class="font-sans">
 
-    <main class="container mx-auto py-4">
-
-        @yield('content')
-
-    </main>
+    @yield('content')
 
     <script src="{{ manifest('js/app.js') }}"></script>
 

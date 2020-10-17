@@ -5,8 +5,11 @@ module.exports = {
     theme: {
         extend: {
             fontFamily: {
-                display: [
-                    'Montserrat',
+                sans: [
+                    'IBM Plex Sans',
+                    'BlinkMacSystemFont',
+                    '-apple-system',
+                    'Helvetica Neue',
                     'sans-serif'
                 ]
             }

@@ -91,5 +91,20 @@ module.exports = plugin(function ({ addComponents, theme }) {
         }
     };
 
+    buttons['.button-black'] = {
+        backgroundColor: theme('colors.black'),
+        color: theme('colors.gray.100'),
+        '&:hover:not([disabled])': {
+            backgroundColor: theme('colors.gray.900')
+        },
+        '&.button-secondary': {
+            backgroundColor: theme('colors.gray.200'),
+            color: theme('colors.gray.800'),
+            '&:hover:not([disabled])': {
+                backgroundColor: theme('colors.gray.300')
+            }
+        }
+    };
+
     addComponents(buttons);
 });

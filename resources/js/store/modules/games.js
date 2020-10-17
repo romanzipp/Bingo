@@ -7,7 +7,8 @@ const state = {
 
 const getters = {
     createTitle: state => state.createTitle,
-    createCards: state => state.createCards
+    createCards: state => state.createCards,
+    filteredCreateCards: state => state.createCards.filter(card => !!card)
 };
 
 const actions = {};

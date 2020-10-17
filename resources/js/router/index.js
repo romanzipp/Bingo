@@ -3,6 +3,7 @@ import VueRouter from 'vue-router';
 import Index from '../pages/Index';
 import CreateGameStart from '../pages/games/create/Start';
 import CreateGameCards from '../pages/games/create/Cards';
+import CreateGameFinish from '../pages/games/create/Finalize';
 
 Vue.use(VueRouter);
 
@@ -32,8 +33,13 @@ const router = new VueRouter({
         },
         {
             path: '/games/create/cards',
-            name: 'games.createCards',
+            name: 'games.create.cards',
             component: CreateGameCards
+        },
+        {
+            path: '/games/create/finish',
+            name: 'games.create.finish',
+            component: CreateGameFinish
         }
     ]
 });

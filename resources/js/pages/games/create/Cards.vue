@@ -8,9 +8,25 @@
 
         <div class="card">
 
+            <h2>
+                Enter Words
+            </h2>
+
             <div class="card-body">
 
                 <textarea v-model="text" id="" cols="30" rows="10" class="input" placeholder="Words"></textarea>
+
+            </div>
+
+            <div class="card-footer flex justify-between">
+
+                <router-link :to="{ name: 'games.create.finish' }" :disabled="cards.length < minCards" class="button button-blue">
+                    Continue
+                </router-link>
+
+                <router-link :to="{ name: 'games.create.start' }" class="button button-black">
+                    Back
+                </router-link>
 
             </div>
 
@@ -31,14 +47,19 @@
 
 <script>
     import { mapGetters } from 'vuex';
+    import { MINIMUM_CARDS } from './../../../constants/game';
 
     export default {
+
+        data: () => ({
+            minCards: MINIMUM_CARDS
+        }),
 
         computed: {
 
             ...mapGetters('games', {
                 title: 'createTitle',
-                cards: 'createCards'
+                cards: 'filteredCreateCards'
             }),
 
             text: {

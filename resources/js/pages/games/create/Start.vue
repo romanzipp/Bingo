@@ -20,7 +20,7 @@
 
             <div class="card-footer">
 
-                <router-link :disabled="!title" :to="{ name: 'games.createCards' }" class="button button-blue">
+                <router-link :disabled="!title" :to="{ name: 'games.create.cards' }" class="button button-blue">
                     Continue
                 </router-link>
 

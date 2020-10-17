@@ -12,6 +12,35 @@
                 {{ game.title }}
             </h1>
 
+            <div v-if="!board">
+
+                <div class="card w-full md:w-1/2 mx-auto">
+
+                    <h2>
+                        Start new Board
+                    </h2>
+
+                    <div class="card-body">
+
+                        <p>
+                            Welcome to this weird Bingo game. It looks like you have not strated
+                            a board yet.
+                        </p>
+
+                    </div>
+
+                    <div class="card-footer">
+
+                        <div @click="start" :disabled="processing" class="button button-blue">
+                            Start game
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
         </div>
 
     </div>
@@ -25,13 +54,16 @@
 
         data: () => ({
             loading: true,
-            error: null
+            error: null,
+            processing: false
         }),
 
         computed: {
 
             ...mapGetters('games', [
-                'games'
+                'games',
+                'boards',
+                'previousGames'
             ]),
 
             id() {
@@ -40,7 +72,12 @@
 
             game() {
                 return this.games.find(game => game.id === this.id);
+            },
+
+            board() {
+                return this.boards.find(board => board.game.id === this.id);
             }
+
         },
 
         created() {
@@ -53,10 +90,26 @@
         },
 
         methods: {
+
             ...mapActions('games', [
-                'getGame'
-            ])
+                'getGame',
+                'createBoard'
+            ]),
+
+            start() {
+
+                if (this.processing) {
+                    return;
+                }
+
+                this.processing = true;
+
+                this
+                    .createBoard({ game: this.id })
+                    .finally(() => this.processing = false);
+            }
         }
+
     };
 
 </script>

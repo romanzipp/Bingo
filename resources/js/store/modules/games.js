@@ -5,6 +5,7 @@ const state = {
     createTitle: null,
     createCards: [],
     games: [],
+    boards: [],
     previousGames: []
 };
 
@@ -13,6 +14,7 @@ const getters = {
     createCards: state => state.createCards,
     filteredCreateCards: state => state.createCards.filter(card => !!card),
     games: state => state.games,
+    boards: state => state.boards,
     previousGames: state => state.previousGames
 };
 
@@ -45,6 +47,18 @@ const actions = {
         });
     },
 
+    createBoard({ commit }, { game }) {
+        return new Promise((resolve, reject) => {
+            axios
+                .post(`games/${game}/boards`)
+                .then(response => {
+                    commit('addBoard', response.data.board);
+                    resolve(response.data);
+                })
+                .catch(error => reject(error));
+        });
+    },
+
     clearCreate({ commit }) {
         commit('setCreateTitle', null);
         commit('setCreateCards', []);
@@ -69,26 +83,49 @@ const mutations = {
         }
     },
 
+    addBoard(state, board) {
+
+        if (state.boards.find(b => b.id === board.id)) {
+            return;
+        }
+
+        state.boards.push(board);
+
+        this.commit('games/updatePreviousGames', { game: board.game, board });
+    },
+
     addGame(state, game) {
 
-        const existing = state.games.find(g => g.id === game.id);
-
-        if (existing) {
+        if (state.games.find(g => g.id === game.id)) {
             return;
         }
 
         state.games.push(game);
 
-        let previousGames = state.previousGames;
+        this.commit('games/updatePreviousGames', { game });
+    },
 
-        previousGames = previousGames.filter(previous => previous.id !== game.id);
+    updatePreviousGames(state, { game, board }) {
 
-        previousGames.push({
+        const existingGame = state.previousGames.find(previous => previous.id === game.id);
+
+        const push = {
             id: game.id,
-            secret: game.secret
-        });
+            secret: existingGame ? existingGame.secret : game.secret,
+            board: board ? board.id : null
+        };
 
-        localStorage[PREVIOUS_GAMES] = JSON.stringify(previousGames);
+        if (existingGame) {
+
+            state.previousGames = state.previousGames.map(previousGame => previousGame.id === game.id ? push : previousGame);
+
+        } else {
+
+            state.previousGames.push(push);
+
+        }
+
+        localStorage[PREVIOUS_GAMES] = JSON.stringify(state.previousGames);
     },
 
     setCreateTitle(state, title) {

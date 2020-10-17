@@ -6,6 +6,7 @@ use Illuminate\Auth\AuthenticationException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Http\Exceptions\HttpResponseException;
 use Illuminate\Http\Request;
+use Illuminate\Validation\ValidationException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -32,8 +33,8 @@ class Handler extends ExceptionHandler
 
         $exception = $this->prepareException($exception);
 
-        if ($exception instanceof AuthenticationException) {
-            return $this->unauthenticated($request, $exception);
+        if ($exception instanceof ValidationException) {
+            return $this->invalidJson($request, $exception);
         }
 
         if ($exception instanceof HttpResponseException) {

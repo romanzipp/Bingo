@@ -1,34 +1,46 @@
-import axios from 'axios';
+import { CREATE_GAME_TEXT, CREATE_GAME_TITLE } from './../../constants/local-storage';
 
 const state = {
-    create: {
-        title: null
-    }
+    createTitle: null,
+    createCards: []
 };
 
 const getters = {
-    create: state => state.create
+    createTitle: state => state.createTitle,
+    createCards: state => state.createCards
 };
 
-const actions = {
-
-    fetchData({ commit }) {
-        return new Promise((resolve, reject) => {
-            axios.get(`/data/data.json`)
-                 .then(response => {
-                     commit('setData', response);
-                     resolve();
-                 })
-                 .catch(e => reject(e));
-        });
-    }
-
-};
+const actions = {};
 
 const mutations = {
 
+    loadDefaults(state) {
+
+        if (CREATE_GAME_TITLE in localStorage) {
+            state.createTitle = localStorage[CREATE_GAME_TITLE];
+        }
+
+        if (CREATE_GAME_TEXT in localStorage) {
+            state.createCards = JSON.parse(localStorage[CREATE_GAME_TEXT]);
+        }
+    },
+
     setCreateTitle(state, title) {
-        state.create.title = title;
+
+        state.createTitle = title;
+
+        if (title) {
+            localStorage[CREATE_GAME_TITLE] = title;
+        }
+    },
+
+    setCreateCards(state, cards) {
+
+        state.createCards = cards;
+
+        if (cards.length) {
+            localStorage[CREATE_GAME_TEXT] = JSON.stringify(cards);
+        }
     }
 
 };

@@ -9,5 +9,8 @@ Vue.config.productionTip = false;
 const app = new Vue({
     router,
     store,
-    render: h => h(App)
+    render: h => h(App),
+    beforeCreate() {
+        this.$store.commit('games/loadDefaults');
+    }
 }).$mount('#app');

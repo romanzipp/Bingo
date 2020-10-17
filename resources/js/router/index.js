@@ -32,7 +32,7 @@ const router = new VueRouter({
         },
         {
             path: '/games/create/cards',
-            name: 'games.create.cards',
+            name: 'games.createCards',
             component: CreateGameCards
         }
     ]

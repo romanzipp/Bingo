@@ -14,13 +14,13 @@
 
             <div class="card-body">
 
-                <input v-model="create.title" type="text" class="input" placeholder="Title">
+                <input v-model="title" type="text" class="input" placeholder="Title">
 
             </div>
 
             <div class="card-footer">
 
-                <router-link :disabled="!create.title" :to="{ name: 'games.create.cards' }" class="button button-blue">
+                <router-link :disabled="!title" :to="{ name: 'games.createCards' }" class="button button-blue">
                     Continue
                 </router-link>
 
@@ -33,15 +33,19 @@
 </template>
 
 <script>
-    import { mapGetters } from 'vuex';
 
     export default {
 
         computed: {
 
-            ...mapGetters('games', [
-                'create'
-            ])
+            title: {
+                get() {
+                    return this.$store.getters['games/createTitle'];
+                },
+                set(value) {
+                    return this.$store.commit('games/setCreateTitle', value);
+                }
+            }
 
         }
 

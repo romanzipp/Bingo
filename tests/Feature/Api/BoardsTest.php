@@ -49,9 +49,11 @@ class BoardsTest extends TestCase
                 'cards' => [
                     '*' => [
                         'id',
-                        'checked',
-                        'order',
                         'title',
+                        'pivot' => [
+                            'checked',
+                            'order',
+                        ],
                     ],
                 ],
                 'game' => [

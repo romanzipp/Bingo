@@ -47,7 +47,7 @@
                     <div class="card-body">
 
                         <p>
-                            Welcome to this weird Bingo game. It looks like you have not strated
+                            Welcome to this weird Bingo game. It looks like you have not started
                             a board yet.
                         </p>
 

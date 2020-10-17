@@ -26,7 +26,7 @@
                                  ...(card.id && card.pivot.checked ? ['bg-blue-500', 'text-white'] : ['bg-white', 'dark:bg-gray-900'])
                              ]"
                              @click="checkCard(card)"
-                             class="flex items-center text-center p-3 rounded-md shadow-md h-full break-words transition-colors duration-100 select-none">
+                             class="flex items-center min-h-32 text-center p-3 rounded-md shadow-md h-full break-words transition-colors duration-100 select-none">
                             {{ card.title }}
                         </div>
 

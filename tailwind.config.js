@@ -35,6 +35,11 @@ module.exports = {
                 ]
             },
 
+            minHeight: theme => ({
+                24: theme('height.24'),
+                32: theme('height.32')
+            }),
+
             screens: {
                 dark: {
                     raw: '(prefers-color-scheme: dark)'

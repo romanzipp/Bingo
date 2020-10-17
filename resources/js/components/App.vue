@@ -2,7 +2,7 @@
 
     <main>
 
-        <Header></Header>
+        <Header />
 
         <main class="container mx-auto dark:bg-black">
 
@@ -14,17 +14,21 @@
 
         </main>
 
+        <Footer />
+
     </main>
 
 </template>
 
 <script>
     import Header from './layout/Header';
+    import Footer from './layout/Footer';
 
     export default {
 
         components: {
-            Header
+            Header,
+            Footer
         },
 
         created() {

@@ -81,7 +81,7 @@
 
         created() {
             this.previousGames.forEach(previous => {
-                this.getGame({ id: previous.id });
+                this.getGame({ game: previous.game });
             });
         },
 

@@ -73,6 +73,20 @@ const actions = {
         });
     },
 
+    updateBoardCard({ commit }, { boardCard, checked }) {
+        return new Promise((resolve, reject) => {
+            axios
+                .patch(`board-cards/${boardCard}`, {
+                    checked: checked ? 1 : 0
+                })
+                .then(response => {
+                    commit('updateBoardCard', response.data.card);
+                    resolve(response.data);
+                })
+                .catch(error => reject(error));
+        });
+    },
+
     clearCreate({ commit }) {
         commit('setCreateTitle', null);
         commit('setCreateCards', []);
@@ -117,6 +131,22 @@ const mutations = {
         state.games.push(game);
 
         this.commit('games/updatePreviousGames', { game });
+    },
+
+    updateBoardCard(state, card) {
+
+        const board = this.getters['games/boards'].find(board => board.game.id === card.game.id);
+
+        state.boards = state.boards.map(b => {
+
+            if (b.id !== board.id) {
+                return b;
+            }
+
+            b.cards = b.cards.map(c => c.id !== card.id ? c : { ...c, ...{ pivot: card.pivot } });
+
+            return b;
+        });
     },
 
     updatePreviousGames(state, { game, board }) {

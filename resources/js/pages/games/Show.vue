@@ -108,7 +108,9 @@
 
             orderedBoardCards() {
 
-                const cards = (this.boardCards || []).sort((a, b) => a.pivot.order - b.pivot.order);
+                const cards = [
+                    ...(this.boardCards || []).sort((a, b) => a.pivot.order - b.pivot.order)
+                ];
 
                 for (let i = 0; i < (this.cols * this.rows) - cards.length; i++) {
                     cards.push({});
@@ -156,16 +158,17 @@
             ...mapActions('games', [
                 'getGame',
                 'getBoard',
-                'createBoard'
+                'createBoard',
+                'updateBoardCard'
             ]),
 
             checkCard(card) {
 
-                if (!card.id || card.pivot.checked) {
+                if (!card.id) {
                     return;
                 }
 
-                console.log(card);
+                this.updateBoardCard({ boardCard: card.pivot.id, checked: !card.pivot.checked });
             },
 
             start() {

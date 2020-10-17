@@ -9,6 +9,8 @@ module.exports = {
 
             colors: {
 
+                background: '#fbfbfb',
+
                 blue: {
                     100: '#E6F3FE',
                     200: '#C1E0FC',
@@ -31,6 +33,12 @@ module.exports = {
                     'Helvetica Neue',
                     'sans-serif'
                 ]
+            },
+
+            screens: {
+                dark: {
+                    raw: '(prefers-color-scheme: dark)'
+                }
             }
 
         }

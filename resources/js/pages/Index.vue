@@ -39,7 +39,7 @@
 
             <div class="flex flex-wrap -mx-4">
 
-                <div v-for="game in games" class="w-1/3 p-4">
+                <div v-for="game in games" class="w-full md:w-1/3 p-4">
 
                     <div class="card">
 

@@ -35,7 +35,7 @@
         <div class="flex flex-wrap -mx-2 mt-6">
 
             <div v-for="card of cards"
-                 class="bg-white shadow-md m-2 px-2 py-1 rounded text-sm">
+                 class="bg-white dark:bg-gray-900 shadow-md m-2 px-2 py-1 rounded text-sm">
                 {{ card }}
             </div>
 

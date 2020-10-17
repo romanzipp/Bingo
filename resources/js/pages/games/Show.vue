@@ -23,10 +23,10 @@
                         <div :style="{ fontSize: card.id ? `${calculateFontSize(card.title)}rem` : undefined }"
                              :class="[
                                  ...(card.id ? ['cursor-pointer', 'hover:bg-blue-500', 'hover:text-white'] : []),
-                                 ...(card.id && card.pivot.checked ? ['bg-blue-500', 'text-white'] : [])
+                                 ...(card.id && card.pivot.checked ? ['bg-blue-500', 'text-white'] : ['bg-white', 'dark:bg-gray-900'])
                              ]"
                              @click="checkCard(card)"
-                             class="flex items-center text-center p-3 rounded-md bg-white shadow-md h-full break-words transition-colors duration-100 select-none">
+                             class="flex items-center text-center p-3 rounded-md shadow-md h-full break-words transition-colors duration-100 select-none">
                             {{ card.title }}
                         </div>
 

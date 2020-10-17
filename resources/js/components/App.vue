@@ -1,20 +1,20 @@
 <template>
 
-    <div>
+    <main>
 
         <Header></Header>
 
-        <div class="container mx-auto">
+        <main class="container mx-auto dark:bg-black">
 
-            <div class="mt-12">
+            <div class="mt-12 px-4">
 
                 <router-view />
 
             </div>
 
-        </div>
+        </main>
 
-    </div>
+    </main>
 
 </template>
 

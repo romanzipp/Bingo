@@ -9,30 +9,6 @@ class GamesTest extends TestCase
 {
     use DatabaseMigrations;
 
-    public function testCreateMissingTitle()
-    {
-        $response = $this->post('api/games', [
-            'cards' => [
-                'Foo1',
-                'Foo2',
-                'Foo3',
-                'Foo4',
-                'Foo5',
-            ],
-        ]);
-
-        $response->assertStatus(422);
-    }
-
-    public function testCreateMissingCards()
-    {
-        $response = $this->post('api/games', [
-            'title' => 'Foo',
-        ]);
-
-        $response->assertStatus(422);
-    }
-
     public function testCreate()
     {
         $response = $this->post('api/games', [
@@ -57,5 +33,29 @@ class GamesTest extends TestCase
                 'created_at',
             ],
         ]);
+    }
+
+    public function testCreateMissingTitle()
+    {
+        $response = $this->post('api/games', [
+            'cards' => [
+                'Foo1',
+                'Foo2',
+                'Foo3',
+                'Foo4',
+                'Foo5',
+            ],
+        ]);
+
+        $response->assertStatus(422);
+    }
+
+    public function testCreateMissingCards()
+    {
+        $response = $this->post('api/games', [
+            'title' => 'Foo',
+        ]);
+
+        $response->assertStatus(422);
     }
 }

@@ -6,6 +6,7 @@ use Domain\Game\Actions\CreateGame;
 use Domain\Game\Data\CreateGameData;
 use Domain\Game\Models\Game;
 use Illuminate\Foundation\Testing\DatabaseMigrations;
+use Ramsey\Uuid\Uuid;
 use Tests\TestCase;
 
 class BoardsTest extends TestCase
@@ -54,5 +55,14 @@ class BoardsTest extends TestCase
                 ],
             ],
         ]);
+    }
+
+    public function testCreateMissingGame()
+    {
+        $response = $this->post('api/boards', [
+            'game_id' => Uuid::uuid4(),
+        ]);
+
+        $response->assertStatus(422);
     }
 }

@@ -21,7 +21,7 @@ class StoreGameController extends AbstractController
     {
         $payload = $request->validate([
             'title' => ['required', 'string', 'min:1', 'max:255'],
-            'cards' => ['required', 'array'],
+            'cards' => ['required', 'array', 'min:5'],
             'cards.*' => ['string', 'min:1', 'max:255'],
         ]);
 

@@ -11,6 +11,10 @@ class BoardCard extends AbstractPivotModel
 {
     protected $table = TableName::GAME_PIVOT_BOARD_CARD;
 
+    protected $casts = [
+        'checked' => 'boolean',
+    ];
+
     public function game()
     {
         return $this->belongsTo(Game::class);

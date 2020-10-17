@@ -15,6 +15,8 @@ class CreateGameBoardCardsTable extends Migration
             $table->uuid('board_id');
             $table->uuid('card_id');
 
+            $table->boolean('checked')->default(false);
+
             $table->timestamps();
 
             $table->foreign('board_id')->references('id')->on(TableName::GAME_BOARDS)->cascadeOnDelete();

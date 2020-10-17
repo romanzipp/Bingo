@@ -35,10 +35,10 @@ const actions = {
         });
     },
 
-    getGame({ commit }, { id }) {
+    getGame({ commit }, { game }) {
         return new Promise((resolve, reject) => {
             axios
-                .get(`games/${id}`)
+                .get(`games/${game}`)
                 .then(response => {
                     commit('addGame', response.data.game);
                     resolve(response.data);
@@ -50,7 +50,21 @@ const actions = {
     createBoard({ commit }, { game }) {
         return new Promise((resolve, reject) => {
             axios
-                .post(`games/${game}/boards`)
+                .post(`boards`, {
+                    game_id: game
+                })
+                .then(response => {
+                    commit('addBoard', response.data.board);
+                    resolve(response.data);
+                })
+                .catch(error => reject(error));
+        });
+    },
+
+    getBoard({ commit }, { board }) {
+        return new Promise((resolve, reject) => {
+            axios
+                .get(`boards/${board}`)
                 .then(response => {
                     commit('addBoard', response.data.board);
                     resolve(response.data);
@@ -107,17 +121,17 @@ const mutations = {
 
     updatePreviousGames(state, { game, board }) {
 
-        const existingGame = state.previousGames.find(previous => previous.id === game.id);
+        const existingGame = state.previousGames.find(previous => previous.game === game.id);
 
         const push = {
-            id: game.id,
+            game: game.id,
             secret: existingGame ? existingGame.secret : game.secret,
             board: board ? board.id : (existingGame ? existingGame.board : null)
         };
 
         if (existingGame) {
 
-            state.previousGames = state.previousGames.map(previousGame => previousGame.id === game.id ? push : previousGame);
+            state.previousGames = state.previousGames.map(previousGame => previousGame.game === game.id ? push : previousGame);
 
         } else {
 

@@ -76,23 +76,33 @@
 
             board() {
                 return this.boards.find(board => board.game.id === this.id);
+            },
+
+            previousGame() {
+                return this.previousGames.find(previousGame => previousGame.game === this.id);
             }
 
         },
 
         created() {
             this
-                .getGame({ id: this.id })
+                .getGame({ game: this.id })
                 .then(({ game }) => {
                     this.loading = false;
                 })
                 .catch(error => this.error = error);
+
+            if (this.previousGame && this.previousGame.board) {
+                this
+                    .getBoard({ board: this.previousGame.board });
+            }
         },
 
         methods: {
 
             ...mapActions('games', [
                 'getGame',
+                'getBoard',
                 'createBoard'
             ]),
 

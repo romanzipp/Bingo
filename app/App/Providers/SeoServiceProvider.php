@@ -31,7 +31,12 @@ class SeoServiceProvider extends ServiceProvider
             Structs\Meta::make()->name('mobile-web-app-capable')->content('yes'),
             Structs\Meta::make()->name('theme-color')->content('#0583f2'),
 
-            Structs\Link::make()->rel('icon')->href(asset('/images/Logo.png')),
+            Structs\Link::make()
+                ->rel('icon')
+                ->href(asset('/images/Logo-black.png'))
+                ->attr('data-light', asset('/images/Logo-black.png'))
+                ->attr('data-dark', asset('/images/Logo-white.png'))
+                ->attr('sizes', '512x512'),
 
             Structs\Meta\OpenGraph::make()->property('site_name')->content(config('app.name')),
             Structs\Meta\OpenGraph::make()->property('locale')->content(config('app.locale')),

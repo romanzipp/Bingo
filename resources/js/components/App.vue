@@ -8,7 +8,7 @@
 
             <div class="mt-12">
 
-            <router-view />
+                <router-view />
 
             </div>
 
@@ -25,6 +25,24 @@
 
         components: {
             Header
+        },
+
+        created() {
+
+            this.updateIcons();
+
+            window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', this.updateIcons);
+        },
+
+        methods: {
+
+            updateIcons() {
+
+                const scheme = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
+
+                document.head.querySelectorAll('link[rel="icon"]').forEach(element => element.href = element.dataset[scheme]);
+            }
+
         }
 
     };

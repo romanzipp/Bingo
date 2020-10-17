@@ -12,6 +12,30 @@
                 {{ game.title }}
             </h1>
 
+            <div v-if="board">
+
+                <div class="flex flex-wrap items-stretch">
+
+                    <div v-for="card in orderedBoardCards"
+                         :style="{ width: `${colWidth}%` }"
+                         class="p-2">
+
+                        <div :style="{ fontSize: card.id ? `${calculateFontSize(card.title)}rem` : undefined }"
+                             :class="[
+                                 ...(card.id ? ['cursor-pointer', 'hover:bg-blue-500', 'hover:text-white'] : []),
+                                 ...(card.id && card.pivot.checked ? ['bg-blue-500', 'text-white'] : [])
+                             ]"
+                             @click="checkCard(card)"
+                             class="flex items-center text-center p-3 rounded-md bg-white shadow-md h-full break-words transition-colors duration-100 select-none">
+                            {{ card.title }}
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
             <div v-if="!board">
 
                 <div class="card w-full md:w-1/2 mx-auto">
@@ -78,8 +102,37 @@
                 return this.boards.find(board => board.game.id === this.id);
             },
 
+            boardCards() {
+                return this.board.cards || [];
+            },
+
+            orderedBoardCards() {
+
+                const cards = (this.boardCards || []).sort((a, b) => a.pivot.order - b.pivot.order);
+
+                for (let i = 0; i < (this.cols * this.rows) - cards.length; i++) {
+                    cards.push({});
+                }
+
+                return cards;
+            },
+
             previousGame() {
                 return this.previousGames.find(previousGame => previousGame.game === this.id);
+            },
+
+            // Board
+
+            cols() {
+                return Math.ceil(Math.sqrt(this.boardCards.length || 1));
+            },
+
+            rows() {
+                return Math.ceil(this.boardCards.length / this.cols);
+            },
+
+            colWidth() {
+                return 100 / Math.floor(this.cols);
             }
 
         },
@@ -106,6 +159,15 @@
                 'createBoard'
             ]),
 
+            checkCard(card) {
+
+                if (!card.id || card.pivot.checked) {
+                    return;
+                }
+
+                console.log(card);
+            },
+
             start() {
 
                 if (this.processing) {
@@ -117,6 +179,19 @@
                 this
                     .createBoard({ game: this.id })
                     .finally(() => this.processing = false);
+            },
+
+            calculateFontSize(text) {
+
+                const mapping = {
+                    50: 1.0,
+                    40: 1.1,
+                    30: 1.2,
+                    20: 1.3,
+                    10: 1.4
+                };
+
+                return mapping[Object.keys(mapping).find(length => text.length <= parseInt(length))] || 1;
             }
         }
 

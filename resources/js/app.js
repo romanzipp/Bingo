@@ -1,5 +1,13 @@
-window._ = require('lodash');
+import Vue from 'vue';
+import router from './router';
+import store from './store';
+import App from './components/App';
 
-window.axios = require('axios');
+Vue.config.ignoredElements = ['ion-icon'];
+Vue.config.productionTip = false;
 
-window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
+const app = new Vue({
+    router,
+    store,
+    render: h => h(App)
+}).$mount('#app');

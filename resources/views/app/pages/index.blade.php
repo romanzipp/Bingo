@@ -2,6 +2,6 @@
 
 @section('content')
 
-    Hi
+    <div id="app"></div>
 
 @endsection

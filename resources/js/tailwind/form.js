@@ -1,16 +1,21 @@
 module.exports = function ({ theme, addComponents }) {
+
     addComponents({
+
         '.input': {
+            width: '100%',
             backgroundColor: theme('colors.gray.100'),
             padding: `${theme('margin.2')} ${theme('margin.3')}`,
             borderRadius: theme('borderRadius.default'),
             fontSize: theme('fontSize.sm'),
             color: theme('colors.gray.800'),
-            border: `2px solid ${theme('colors.gray.300')}`,
+            border: `1px solid ${theme('colors.gray.300')}`,
             lineHeight: theme('leading.normal'),
             outline: 'none',
+            transitionProperty: theme('transitionProperty.colors'),
+            transitionDuration: theme('transitionDuration.100'),
             '&:focus': {
-                borderColor: theme('colors.blue.300'),
+                borderColor: theme('colors.blue.500'),
                 backgroundColor: theme('colors.blue.100')
             },
             '&::placeholder': {
@@ -25,6 +30,7 @@ module.exports = function ({ theme, addComponents }) {
                 }
             }
         },
+
         'form': {
             '.field': {
                 'label': {
@@ -48,5 +54,7 @@ module.exports = function ({ theme, addComponents }) {
                 }
             }
         }
+
     });
+
 };

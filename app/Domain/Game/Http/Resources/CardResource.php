@@ -14,6 +14,7 @@ class CardResource extends AbstractResource
         return [
             'id' => $card->id,
             'title' => $card->title,
+            'checked' => $card->pivot->checked ?? null,
         ];
     }
 }

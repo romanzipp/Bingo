@@ -21,6 +21,10 @@ class BoardResource extends AbstractResource
                 $this->whenLoaded('game')
             ),
 
+            'cards' => CardResource::collection(
+                $this->whenLoaded('cards')
+            ),
+
             $this->withDates(),
 
         ];

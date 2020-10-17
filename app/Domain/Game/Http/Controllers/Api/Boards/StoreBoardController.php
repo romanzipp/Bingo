@@ -39,6 +39,10 @@ class StoreBoardController extends AbstractController
             ])
         );
 
+        $board->load([
+            'cards',
+        ]);
+
         return new BoardResource($board);
     }
 }

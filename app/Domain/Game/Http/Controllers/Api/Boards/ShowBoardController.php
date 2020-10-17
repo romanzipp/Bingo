@@ -13,6 +13,7 @@ class ShowBoardController extends AbstractController
     {
         $board->load([
             'game',
+            'cards',
         ]);
 
         return new BoardResource($board);

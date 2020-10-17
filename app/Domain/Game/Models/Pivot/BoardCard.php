@@ -2,8 +2,8 @@
 
 namespace Domain\Game\Models\Pivot;
 
+use Domain\Game\Models\Board;
 use Domain\Game\Models\Card;
-use Domain\Game\Models\Game;
 use Support\Enums\TableName;
 use Support\Models\AbstractPivotModel;
 
@@ -15,9 +15,9 @@ class BoardCard extends AbstractPivotModel
         'checked' => 'boolean',
     ];
 
-    public function game()
+    public function board()
     {
-        return $this->belongsTo(Game::class);
+        return $this->belongsTo(Board::class);
     }
 
     public function card()

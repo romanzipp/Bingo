@@ -46,6 +46,14 @@ class BoardsTest extends TestCase
                 'id',
                 'created_at',
                 'updated_at',
+                'cards' => [
+                    '*' => [
+                        'id',
+                        'checked',
+                        'order',
+                        'title',
+                    ],
+                ],
                 'game' => [
                     'id',
                     'title',

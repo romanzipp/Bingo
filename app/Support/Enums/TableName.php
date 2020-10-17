@@ -9,4 +9,8 @@ class TableName extends AbstractEnum
 
     public const USER_USERS = 'user-users';
     public const USER_PASSWORD_RESETS = 'user-password_resets';
+
+    public const GAME_GAMES = 'game-games';
+    public const GAME_BOARDS = 'game-boards';
+    public const GAME_CARDS = 'game-cards';
 }

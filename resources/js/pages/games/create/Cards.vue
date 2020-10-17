@@ -20,9 +20,12 @@
 
             <div class="card-footer flex justify-between">
 
-                <router-link :to="{ name: 'games.create.finish' }" :disabled="cards.length < minCards" class="button button-blue">
+                <component :is="canContinue ? 'router-link' : 'div'"
+                           :disabled="!canContinue"
+                           :to="{ name: 'games.create.finish' }"
+                           class="button button-blue">
                     Continue
-                </router-link>
+                </component>
 
                 <router-link :to="{ name: 'games.create.start' }" class="button button-black">
                     Back
@@ -47,7 +50,7 @@
 
 <script>
     import { mapGetters } from 'vuex';
-    import { MINIMUM_CARDS } from './../../../constants/game';
+    import { MINIMUM_CARDS } from '../../../constants/game';
 
     export default {
 
@@ -61,6 +64,10 @@
                 title: 'createTitle',
                 cards: 'filteredCreateCards'
             }),
+
+            canContinue() {
+                return this.cards.length >= this.minCards;
+            },
 
             text: {
                 get() {

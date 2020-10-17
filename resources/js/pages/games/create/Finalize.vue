@@ -29,11 +29,15 @@
 
             </div>
 
-            <div class="card-footer">
+            <div class="card-footer flex space-x-4">
 
                 <div @click="submit" :disabled="loading" class="button button-blue w-full">
                     Create game
                 </div>
+
+                <router-link :to="{ name: 'games.create.cards' }" class="button button-black">
+                    Back
+                </router-link>
 
             </div>
 

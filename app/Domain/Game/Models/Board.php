@@ -20,6 +20,7 @@ class Board extends AbstractModel
         return $this
             ->belongsToMany(Card::class, BoardCard::class)
             ->withPivot([
+                'id',
                 'checked',
                 'order',
             ]);

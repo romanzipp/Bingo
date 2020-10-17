@@ -17,8 +17,11 @@ class CardResource extends AbstractResource
             'title' => $card->title,
 
             $this->mergeWhen($card->pivot, fn() => [
-                'checked' => $card->pivot->checked,
-                'order' => $card->pivot->order,
+                'pivot' => [
+                    'id' => $card->pivot->id,
+                    'checked' => $card->pivot->checked,
+                    'order' => $card->pivot->order,
+                ],
             ]),
 
         ];

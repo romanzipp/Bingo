@@ -58,4 +58,18 @@ class GamesTest extends TestCase
 
         $response->assertStatus(422);
     }
+
+    public function testCreateInsufficientCards()
+    {
+        $response = $this->post('api/games', [
+            'cards' => [
+                'Foo1',
+                'Foo2',
+                'Foo3',
+                'Foo4',
+            ],
+        ]);
+
+        $response->assertStatus(422);
+    }
 }

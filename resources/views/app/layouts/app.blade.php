@@ -9,7 +9,7 @@
     <link href="{{ manifest('css/app.css') }}" rel="stylesheet">
 
 </head>
-<body class="font-sans">
+<body>
 
     @yield('content')
 

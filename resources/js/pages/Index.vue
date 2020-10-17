@@ -8,9 +8,13 @@
                 Bingo
             </h2>
 
-            <div class="card-body">
+            <div class="card-body space-y-4">
                 <p>
-                    Easily create public shareable bingo games with nearly unlimited players. Without bullshit.
+                    Create public shareable interactive bingo games with unlimited players.
+                    No account required. No ads. No bullshit.
+                </p>
+                <p>
+                    When sharing a bingo game, each player will receive an own randomized board.
                 </p>
             </div>
 

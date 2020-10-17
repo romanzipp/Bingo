@@ -4,6 +4,7 @@ import Index from '../pages/Index';
 import CreateGameStart from '../pages/games/create/Start';
 import CreateGameCards from '../pages/games/create/Cards';
 import CreateGameFinish from '../pages/games/create/Finalize';
+import ShowGame from '../pages/games/Show';
 
 Vue.use(VueRouter);
 
@@ -40,6 +41,11 @@ const router = new VueRouter({
             path: '/games/create/finish',
             name: 'games.create.finish',
             component: CreateGameFinish
+        },
+        {
+            path: '/play/:game',
+            name: 'games.show',
+            component: ShowGame
         }
     ]
 });

@@ -4,7 +4,7 @@
 
         <Header />
 
-        <main class="container mx-auto dark:bg-black">
+        <main class="container mx-auto">
 
             <div class="mt-12 px-4">
 

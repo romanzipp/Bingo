@@ -5,13 +5,13 @@ module.exports = plugin(function ({ addBase, theme }) {
     addBase({
 
         'body': {
-            backgroundColor: theme('colors.background'),
+            backgroundColor: theme('colors.background.light'),
             color: theme('colors.gray.900'),
             fontFamily: theme('fontFamily.sans'),
             '-webkit-font-smoothing': 'auto',
             '-moz-osx-font-smoothing': 'auto',
             '@screen dark': {
-                backgroundColor: theme('colors.black'),
+                backgroundColor: theme('colors.background.dark'),
                 color: theme('colors.white')
             }
         },

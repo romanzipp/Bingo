@@ -4,7 +4,7 @@
 
         <div class="container px-4 mx-auto flex h-12 items-stretch text-gray-200">
 
-            <router-link :to="{ name: 'index' }" class="flex items-center font-light">
+            <router-link :to="{ name: 'index' }" class="flex items-center">
                 Trash Bingo
             </router-link>
 

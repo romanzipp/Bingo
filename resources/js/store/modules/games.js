@@ -112,7 +112,7 @@ const mutations = {
         const push = {
             id: game.id,
             secret: existingGame ? existingGame.secret : game.secret,
-            board: board ? board.id : null
+            board: board ? board.id : (existingGame ? existingGame.board : null)
         };
 
         if (existingGame) {

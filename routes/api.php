@@ -8,7 +8,7 @@ Route::prefix('games')->group(function () {
 
     });
 
-    Route::post('', \Domain\Game\Http\Controllers\Api\Games\StoreGameController::class);
+    Route::post('', \Domain\Game\Http\Controllers\Api\Games\StoreGameController::class)->middleware('throttle:5,1');
 
 });
 
@@ -20,7 +20,7 @@ Route::prefix('boards')->group(function () {
 
     });
 
-    Route::post('', \Domain\Game\Http\Controllers\Api\Boards\StoreBoardController::class);
+    Route::post('', \Domain\Game\Http\Controllers\Api\Boards\StoreBoardController::class)->middleware('throttle:20,1');
 
 });
 

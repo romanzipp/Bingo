@@ -17,6 +17,11 @@ class Board extends AbstractModel
 
     public function cards()
     {
-        return $this->belongsToMany(Card::class, BoardCard::class)->withPivot(['checked']);
+        return $this
+            ->belongsToMany(Card::class, BoardCard::class)
+            ->withPivot([
+                'checked',
+                'order',
+            ]);
     }
 }

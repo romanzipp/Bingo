@@ -15,9 +15,13 @@ class CreateBoard
 
         $board->save();
 
-        foreach ($data->game->cards as $card) {
+        $cards = collect($data->game->cards)->shuffle();
 
-            $boardCard = new BoardCard();
+        foreach ($cards as $order => $card) {
+
+            $boardCard = new BoardCard([
+                'order' => $order,
+            ]);
 
             $boardCard->board()->associate($board);
             $boardCard->card()->associate($card);

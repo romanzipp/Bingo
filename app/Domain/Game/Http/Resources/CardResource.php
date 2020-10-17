@@ -12,9 +12,15 @@ class CardResource extends AbstractResource
         $card = $this->resource;
 
         return [
+
             'id' => $card->id,
             'title' => $card->title,
-            'checked' => $card->pivot->checked ?? null,
+
+            $this->mergeWhen($card->pivot, fn() => [
+                'checked' => $card->pivot->checked,
+                'order' => $card->pivot->order,
+            ]),
+
         ];
     }
 }

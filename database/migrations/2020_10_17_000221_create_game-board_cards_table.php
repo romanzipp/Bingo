@@ -15,6 +15,7 @@ class CreateGameBoardCardsTable extends Migration
             $table->uuid('board_id');
             $table->uuid('card_id');
 
+            $table->unsignedInteger('order');
             $table->boolean('checked')->default(false);
 
             $table->timestamps();

@@ -4,7 +4,15 @@
 
         <Header></Header>
 
-        <router-view />
+        <div class="container mx-auto">
+
+            <div class="mt-12">
+
+            <router-view />
+
+            </div>
+
+        </div>
 
     </div>
 

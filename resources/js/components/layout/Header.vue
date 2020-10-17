@@ -1,6 +1,6 @@
 <template>
 
-    <div class="bg-gray-900 text-white">
+    <div class="bg-gray-900 text-white shadow-lg">
 
         <div class="container mx-auto flex h-12 items-stretch text-gray-200">
 

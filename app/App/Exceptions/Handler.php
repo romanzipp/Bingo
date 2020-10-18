@@ -12,7 +12,7 @@ use Throwable;
 class Handler extends ExceptionHandler
 {
     protected $dontReport = [
-        //
+
     ];
 
     protected $dontFlash = [

@@ -47,6 +47,10 @@
                             {{ game.title }}
                         </h3>
 
+                        <p class="text-xs uppercase font-medium text-gray-600">
+                            Created {{ $luxon.fromISO(game.created_at).toLocaleString() }}
+                        </p>
+
                         <div class="card-footer">
 
                             <router-link :to="{ name: 'games.show', params: { game: game.id }}" class="button button-blue">

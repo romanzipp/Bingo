@@ -30,10 +30,10 @@ module.exports = {
 
             fontFamily: {
                 sans: [
-                    'IBM Plex Sans',
+                    '"IBM Plex Sans"',
                     'BlinkMacSystemFont',
                     '-apple-system',
-                    'Helvetica Neue',
+                    '"Helvetica Neue"',
                     'sans-serif'
                 ]
             },

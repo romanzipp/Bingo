@@ -7,7 +7,7 @@ module.exports = plugin(function ({ addBase, theme }) {
         'body': {
             backgroundColor: theme('colors.background.light'),
             color: theme('colors.gray.900'),
-            fontFamily: theme('fontFamily.sans'),
+            fontFamily: theme('fontFamily.sans').join(','),
             '-webkit-font-smoothing': 'auto',
             '-moz-osx-font-smoothing': 'auto',
             '@screen dark': {

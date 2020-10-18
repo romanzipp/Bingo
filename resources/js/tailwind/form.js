@@ -31,27 +31,29 @@ module.exports = function ({ theme, addComponents }) {
             }
         },
 
-        'form': {
-            '.field': {
-                'label': {
-                    display: 'block',
-                    fontSize: theme('fontSize.xs'),
-                    color: theme('colors.gray.600'),
-                    marginBottom: theme('margin.1'),
-                    textTransform: 'uppercase'
-                },
-                '&.checkbox-field': {
-                    display: 'flex',
-                    alignItems: 'center',
-                    'label': {
-                        marginBottom: 0,
-                        paddingLeft: theme('padding.2'),
-                        fontSize: theme('fontSize.sm')
-                    },
-                    'label, input[type="checkbox"]': {
-                        cursor: 'pointer'
-                    }
-                }
+        'label.label': {
+            display: 'block',
+            fontSize: theme('fontSize.xs'),
+            color: theme('colors.gray.600'),
+            marginBottom: theme('margin.1'),
+            textTransform: 'uppercase',
+
+            '&.required::before': {
+                content: '*',
+                color: theme('colors.red.500'),
+            }
+        },
+
+        '&.checkbox-field': {
+            display: 'flex',
+            alignItems: 'center',
+            'label': {
+                marginBottom: 0,
+                paddingLeft: theme('padding.2'),
+                fontSize: theme('fontSize.sm')
+            },
+            'label, input[type="checkbox"]': {
+                cursor: 'pointer'
             }
         }
 

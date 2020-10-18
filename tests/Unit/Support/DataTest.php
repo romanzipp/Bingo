@@ -11,7 +11,7 @@ class DataTest extends TestCase
 {
     public function testBasicBoolsDefaults()
     {
-        $data = new class extends AbstractData {
+        $data = new class() extends AbstractData {
             public bool $yes = true;
             public bool $no = false;
         };
@@ -33,7 +33,7 @@ class DataTest extends TestCase
 
     public function testTypeHintedUnintialized()
     {
-        $data = new class extends AbstractData {
+        $data = new class() extends AbstractData {
             public User $user;
         };
 
@@ -42,7 +42,7 @@ class DataTest extends TestCase
 
     public function testTypeHintedNullable()
     {
-        $data = new class extends AbstractData {
+        $data = new class() extends AbstractData {
             public ?User $user;
         };
 
@@ -51,7 +51,7 @@ class DataTest extends TestCase
 
     public function testTypeHintedNull()
     {
-        $data = new class extends AbstractData {
+        $data = new class() extends AbstractData {
             public ?User $user = null;
         };
 
@@ -62,8 +62,8 @@ class DataTest extends TestCase
     {
         $this->expectException(InvalidDataException::class);
 
-        new class extends AbstractData {
 
+        new class() extends AbstractData {
             protected static array $required = [
                 'what',
             ];
@@ -76,8 +76,8 @@ class DataTest extends TestCase
     {
         $this->expectException(InvalidDataException::class);
 
-        new class extends AbstractData {
 
+        new class() extends AbstractData {
             protected static array $required = [
                 'what',
             ];
@@ -90,8 +90,8 @@ class DataTest extends TestCase
     {
         $this->expectException(InvalidDataException::class);
 
-        new class extends AbstractData {
 
+        new class() extends AbstractData {
             protected static array $required = [
                 'what',
             ];

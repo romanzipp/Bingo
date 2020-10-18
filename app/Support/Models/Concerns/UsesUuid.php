@@ -82,7 +82,7 @@ trait UsesUuid
     }
 
     /**
-     * Find by id
+     * Find by id.
      *
      * @param $id
      * @return static

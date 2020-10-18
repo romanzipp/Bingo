@@ -8,7 +8,7 @@
 
         <div class="card w-full md:w-1/2 mx-auto">
 
-            <h2>
+            <h2 class="truncate">
                 {{ title }}
             </h2>
 

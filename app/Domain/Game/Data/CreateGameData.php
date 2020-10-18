@@ -13,5 +13,9 @@ class CreateGameData extends AbstractData
 
     public string $title;
 
+    public ?string $description;
+
+    public ?string $userName;
+
     public array $cards;
 }

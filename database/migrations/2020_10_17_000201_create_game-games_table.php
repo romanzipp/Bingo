@@ -14,9 +14,11 @@ class CreateGameGamesTable extends Migration
             $table->uuid('secret');
 
             $table->string('title');
+            $table->longText('description')->nullable();
+
+            $table->string('user_name')->nullable();
 
             $table->timestamps();
-
         });
     }
 

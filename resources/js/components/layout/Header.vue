@@ -7,7 +7,7 @@
             <div class="flex align-items-stretch">
 
                 <router-link :to="{ name: 'index' }" class="flex items-center">
-                    Trash Bingo
+                    Just Bingo
                 </router-link>
 
             </div>

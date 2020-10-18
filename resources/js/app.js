@@ -14,6 +14,7 @@ const app = new Vue({
     store,
     render: h => h(App),
     beforeCreate() {
+        this.$store.commit('auth/loadDefaults');
         this.$store.commit('games/loadDefaults');
     }
 }).$mount('#app');

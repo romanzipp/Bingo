@@ -12,9 +12,28 @@
                 General Information
             </h2>
 
-            <div class="card-body">
+            <div class="card-body space-y-6">
 
-                <input v-model="title" type="text" class="input" placeholder="Title">
+                <div>
+
+                    <label class="label required" for="start-game-title">
+                        Title
+                    </label>
+
+                    <input v-model="title" type="text" class="input" placeholder="Apple Keynote" id="start-game-title">
+
+                </div>
+
+                <div>
+
+                    <label class="label" for="start-game-name">
+                        Your name
+                    </label>
+
+                    <input v-model="name" type="text" class="input" placeholder="John Doe" id="start-game-name">
+
+                </div>
+
 
             </div>
 
@@ -51,6 +70,15 @@
                 },
                 set(value) {
                     return this.$store.commit('games/setCreateTitle', value);
+                }
+            },
+
+            name: {
+                get() {
+                    return this.$store.getters['auth/name'];
+                },
+                set(value) {
+                    return this.$store.commit('auth/setName', value);
                 }
             }
 

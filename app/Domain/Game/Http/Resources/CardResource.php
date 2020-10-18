@@ -22,7 +22,7 @@ class CardResource extends AbstractResource
                 $this->whenLoaded('game')
             ),
 
-            $this->mergeWhen($card->pivot, fn() => [
+            $this->mergeWhen($card->pivot, fn () => [
                 'pivot' => [
                     'id' => $card->pivot->id,
                     'checked' => $card->pivot->checked,

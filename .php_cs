@@ -1,0 +1,40 @@
+<?php
+
+return PhpCsFixer\Config::create()
+    ->setRules([
+        '@PSR2' => true,
+        '@Symfony' => true,
+        'array_indentation' => false,
+        'array_syntax' => ['syntax' => 'short'],
+        'binary_operator_spaces' => ['align_equals' => false, 'align_double_arrow' => false],
+        'compact_nullable_typehint' => true,
+        'concat_space' => false, // Evaluate
+        'fully_qualified_strict_types' => true,
+        'no_blank_lines_after_class_opening' => false,
+        'no_extra_blank_lines' => [],
+        'no_leading_import_slash' => true,
+        'no_singleline_whitespace_before_semicolons' => true,
+        'no_spaces_around_offset' => true,
+        'no_superfluous_phpdoc_tags' => false,
+        'no_trailing_comma_in_singleline_array' => true,
+        'no_unneeded_control_parentheses' => true,
+        'no_unused_imports' => true,
+        'no_useless_return' => true,
+        'no_whitespace_in_blank_line' => true,
+        'not_operator_with_space' => true,
+        'not_operator_with_successor_space' => true,
+        'object_operator_without_whitespace' => true,
+        'ordered_imports' => true,
+        'php_unit_fqcn_annotation' => true,
+        'phpdoc_align' => ['align' => 'left'],
+        'phpdoc_order' => true,
+        'phpdoc_separation' => false,
+        'phpdoc_single_line_var_spacing' => true,
+        'single_blank_line_before_namespace' => true,
+        'ternary_operator_spaces' => true,
+        'trailing_comma_in_multiline_array' => true,
+        'trim_array_spaces' => true,
+        'unary_operator_spaces' => true,
+        //'phpdoc_add_missing_param_annotation' => true,
+    ])
+    ->setLineEnding("\n");

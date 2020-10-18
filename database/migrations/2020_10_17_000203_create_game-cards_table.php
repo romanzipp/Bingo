@@ -9,7 +9,6 @@ class CreateGameCardsTable extends Migration
     public function up()
     {
         Schema::create(TableName::GAME_CARDS, function (Blueprint $table) {
-
             $table->uuid('id')->primary();
 
             $table->string('title');
@@ -19,7 +18,6 @@ class CreateGameCardsTable extends Migration
             $table->timestamps();
 
             $table->foreign('game_id')->references('id')->on(TableName::GAME_GAMES)->cascadeOnDelete();
-
         });
     }
 

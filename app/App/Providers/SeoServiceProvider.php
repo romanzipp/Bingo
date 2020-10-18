@@ -25,7 +25,6 @@ class SeoServiceProvider extends ServiceProvider
         seo()->description('Create public shareable interactive bingo games with unlimited players. No account required. No ads. No bullshit.');
 
         seo()->addMany([
-
             Structs\Meta::make()->name('copyright')->content('Roman Zipp'),
 
             Structs\Meta::make()->name('mobile-web-app-capable')->content('yes'),
@@ -40,7 +39,6 @@ class SeoServiceProvider extends ServiceProvider
 
             Structs\Meta\OpenGraph::make()->property('site_name')->content(config('app.name')),
             Structs\Meta\OpenGraph::make()->property('locale')->content(config('app.locale')),
-
         ]);
     }
 }

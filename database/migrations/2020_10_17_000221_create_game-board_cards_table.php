@@ -9,7 +9,6 @@ class CreateGameBoardCardsTable extends Migration
     public function up()
     {
         Schema::create(TableName::GAME_PIVOT_BOARD_CARD, function (Blueprint $table) {
-
             $table->uuid('id')->primary();
 
             $table->uuid('board_id');
@@ -22,7 +21,6 @@ class CreateGameBoardCardsTable extends Migration
 
             $table->foreign('board_id')->references('id')->on(TableName::GAME_BOARDS)->cascadeOnDelete();
             $table->foreign('card_id')->references('id')->on(TableName::GAME_CARDS)->cascadeOnDelete();
-
         });
     }
 

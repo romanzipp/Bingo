@@ -14,7 +14,6 @@ class BoardResource extends AbstractResource
         $board = $this->resource;
 
         return [
-
             'id' => $board->id,
 
             'game' => new GameResource(
@@ -26,7 +25,6 @@ class BoardResource extends AbstractResource
             ),
 
             $this->withDates(),
-
         ];
     }
 }

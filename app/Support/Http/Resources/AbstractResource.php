@@ -35,6 +35,7 @@ abstract class AbstractResource extends BaseResource
      * Merge the model timestamps (created & updated) with resource data.
      *
      * @param array|null $columns
+     *
      * @return \Illuminate\Http\Resources\MergeValue|mixed
      */
     public function withDates(?array $columns = null)
@@ -53,6 +54,7 @@ abstract class AbstractResource extends BaseResource
      * Convert the resource to a view data object.
      *
      * @param $request
+     *
      * @return \stdClass
      */
     public function toView($request): stdClass
@@ -67,7 +69,7 @@ abstract class AbstractResource extends BaseResource
     {
         return tap(new ResourceCollection($resource, static::class), function ($collection) {
             if (property_exists(static::class, 'preserveKeys')) {
-                $collection->preserveKeys = (new static([]))->preserveKeys === true;
+                $collection->preserveKeys = true === (new static([]))->preserveKeys;
             }
         });
     }

@@ -10,7 +10,6 @@ class CreateUserUsersTable extends Migration
     public function up()
     {
         Schema::create(TableName::USER_USERS, function (Blueprint $table) {
-
             $table->uuid('id')->primary();
 
             $table->string('name');
@@ -21,7 +20,6 @@ class CreateUserUsersTable extends Migration
             $table->rememberToken();
 
             $table->timestamps();
-
         });
     }
 

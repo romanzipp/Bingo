@@ -43,6 +43,7 @@ final class User extends AbstractModel implements AuthenticatableContract, Autho
      * Send the password reset notification.
      *
      * @param string $token
+     *
      * @return void
      */
     public function sendPasswordResetNotification($token)

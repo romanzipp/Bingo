@@ -27,10 +27,8 @@ class StoreBoardController extends AbstractController
 
         $game = Game::query()->find($payload['game_id']);
 
-        if ($game === null) {
-            throw ValidationException::withMessages([
-                'game_id' => 'Game does not exist',
-            ]);
+        if (null === $game) {
+            throw ValidationException::withMessages(['game_id' => 'Game does not exist']);
         }
 
         $board = $this->createBoard->execute(

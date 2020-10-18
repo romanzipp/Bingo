@@ -62,7 +62,6 @@ class DataTest extends TestCase
     {
         $this->expectException(InvalidDataException::class);
 
-
         new class() extends AbstractData {
             protected static array $required = [
                 'what',
@@ -75,7 +74,6 @@ class DataTest extends TestCase
     public function testRequiredMissing()
     {
         $this->expectException(InvalidDataException::class);
-
 
         new class() extends AbstractData {
             protected static array $required = [
@@ -90,7 +88,6 @@ class DataTest extends TestCase
     {
         $this->expectException(InvalidDataException::class);
 
-
         new class() extends AbstractData {
             protected static array $required = [
                 'what',
@@ -103,7 +100,6 @@ class DataTest extends TestCase
     public function testRequiredFilled()
     {
         $data = new class(['what' => true]) extends AbstractData {
-
             protected static array $required = [
                 'what',
             ];

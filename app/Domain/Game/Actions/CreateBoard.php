@@ -18,7 +18,6 @@ class CreateBoard
         $cards = collect($data->game->cards)->shuffle();
 
         foreach ($cards as $order => $card) {
-
             $boardCard = new BoardCard([
                 'order' => $order,
             ]);

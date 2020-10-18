@@ -16,6 +16,7 @@ trait UsesUuid
      *
      * @param string $key
      * @param array|string|null $types
+     *
      * @return bool
      */
     abstract public function hasCast($key, $types = null);
@@ -31,12 +32,10 @@ trait UsesUuid
     public static function bootUsesUuid(): void
     {
         static::creating(function ($model) {
-
             /* @var \Illuminate\Database\Eloquent\Model|static $model */
             $uuid = self::resolveUuid();
 
             foreach ($model->uuidColumns() as $item) {
-
                 if (isset($model->attributes[$item]) && ! is_null($model->attributes[$item])) {
                     /* @var \Ramsey\Uuid\Uuid $uuid */
                     $uuid = Uuid::fromString(strtolower($model->attributes[$item]));
@@ -74,7 +73,7 @@ trait UsesUuid
      */
     public static function resolveUuid(): UuidInterface
     {
-        if (($version = self::resolveUuidVersion()) === 'ordered') {
+        if ('ordered' === ($version = self::resolveUuidVersion())) {
             return Str::orderedUuid();
         }
 
@@ -85,6 +84,7 @@ trait UsesUuid
      * Find by id.
      *
      * @param $id
+     *
      * @return static
      */
     public static function uuid($id): ?self
@@ -113,7 +113,7 @@ trait UsesUuid
      */
     public function scopeWhereUuid($query, $uuid, $uuidColumn = null): Builder
     {
-        $uuidColumn = $uuidColumn !== null && in_array($uuidColumn, $this->uuidColumns())
+        $uuidColumn = null !== $uuidColumn && in_array($uuidColumn, $this->uuidColumns())
             ? $uuidColumn
             : $this->uuidColumns()[0];
 
@@ -128,6 +128,7 @@ trait UsesUuid
      * Convert a single UUID or array of UUIDs to bytes.
      *
      * @param \Illuminate\Contracts\Support\Arrayable|array|string $uuid
+     *
      * @return array
      */
     protected function bytesFromUuid($uuid): array

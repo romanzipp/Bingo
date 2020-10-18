@@ -10,7 +10,6 @@ class CreateSupportFailedJobsTable extends Migration
     public function up()
     {
         Schema::create(TableName::SUPPORT_FAILED_JOBS, function (Blueprint $table) {
-
             $table->id();
 
             $table->text('connection');
@@ -19,7 +18,6 @@ class CreateSupportFailedJobsTable extends Migration
             $table->longText('exception');
 
             $table->timestamp('failed_at')->useCurrent();
-
         });
     }
 

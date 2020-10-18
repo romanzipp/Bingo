@@ -9,7 +9,6 @@ class CreateGameBoardsTable extends Migration
     public function up()
     {
         Schema::create(TableName::GAME_BOARDS, function (Blueprint $table) {
-
             $table->uuid('id')->primary();
 
             $table->uuid('game_id');
@@ -17,7 +16,6 @@ class CreateGameBoardsTable extends Migration
             $table->timestamps();
 
             $table->foreign('game_id')->references('id')->on(TableName::GAME_GAMES)->cascadeOnDelete();
-
         });
     }
 

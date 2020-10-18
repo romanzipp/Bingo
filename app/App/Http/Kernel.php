@@ -47,7 +47,6 @@ class Kernel extends HttpKernel
      * @var array
      */
     protected $middlewareGroups = [
-
         'web' => [
             EncryptCookies::class,
             AddQueuedCookiesToResponse::class,
@@ -59,7 +58,6 @@ class Kernel extends HttpKernel
             SubstituteBindings::class,
             ProcessApiResponseData::class,
         ],
-
     ];
 
     /**

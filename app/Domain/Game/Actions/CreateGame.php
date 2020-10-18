@@ -19,7 +19,6 @@ class CreateGame
         $game->save();
 
         foreach ($data->cards as $word) {
-
             $card = new Card([
                 'title' => $word,
             ]);

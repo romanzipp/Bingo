@@ -100,6 +100,7 @@ abstract class AbstractRepository implements RepositoryContract
      * Paginate the query.
      *
      * @param int|null $perPage
+     *
      * @return $this
      */
     public function paginate(int $perPage = null): AbstractRepository
@@ -181,6 +182,7 @@ abstract class AbstractRepository implements RepositoryContract
      *
      * @param string $method
      * @param array $parameters
+     *
      * @return \Support\Repositories\AbstractRepository
      */
     public function __call($method, $parameters)

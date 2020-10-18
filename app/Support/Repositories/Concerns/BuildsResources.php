@@ -39,7 +39,7 @@ trait BuildsResources
 
         $result = $this->fetch()->first();
 
-        if ($result === null) {
+        if (null === $result) {
             return null;
         }
 
@@ -51,6 +51,7 @@ trait BuildsResources
      *
      * @param \Illuminate\Http\Request $request
      * @param bool $collection
+     *
      * @return \stdClass|null
      */
     public function toView(Request $request, bool $collection): ?stdClass
@@ -63,7 +64,7 @@ trait BuildsResources
 
         $resource = $this->toResource();
 
-        if ($resource === null) {
+        if (null === $resource) {
             return null;
         }
 
@@ -74,6 +75,7 @@ trait BuildsResources
      * Convert the query results into a single view object.
      *
      * @param \Illuminate\Http\Request $request
+     *
      * @return \stdClass|null
      */
     public function oneToView(Request $request): ?stdClass
@@ -85,6 +87,7 @@ trait BuildsResources
      * Convert the query results into a view data object collection.
      *
      * @param \Illuminate\Http\Request $request
+     *
      * @return \stdClass
      */
     public function manyToView(Request $request): stdClass

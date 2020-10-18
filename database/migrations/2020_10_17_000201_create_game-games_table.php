@@ -9,7 +9,6 @@ class CreateGameGamesTable extends Migration
     public function up()
     {
         Schema::create(TableName::GAME_GAMES, function (Blueprint $table) {
-
             $table->uuid('id')->primary();
             $table->uuid('secret');
 

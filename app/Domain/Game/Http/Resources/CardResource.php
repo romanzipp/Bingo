@@ -14,7 +14,6 @@ class CardResource extends AbstractResource
         $card = $this->resource;
 
         return [
-
             'id' => $card->id,
             'title' => $card->title,
 
@@ -29,7 +28,6 @@ class CardResource extends AbstractResource
                     'order' => $card->pivot->order,
                 ],
             ]),
-
         ];
     }
 }

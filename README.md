@@ -1,5 +1,7 @@
 # Just Bingo
 
+Create public shareable interactive bingo games with unlimited players. No account required. No ads. No bullshit.
+
 ## Installation
 
 #### Install dependencies

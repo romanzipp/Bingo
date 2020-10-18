@@ -3,13 +3,13 @@
     <div>
 
         <h1>
-            {{ title }}
+            Create Game
         </h1>
 
         <div class="card w-full md:w-1/2 mx-auto">
 
             <h2>
-                Create game
+                {{ title }}
             </h2>
 
             <div class="card-body">
@@ -89,16 +89,16 @@
                     .finally(() => this.loading = false);
             },
 
-            redirect(game){
+            redirect(game) {
                 this.$router.push({
                     name: 'games.show',
                     params: {
                         game: game.id
                     }
-                })
+                });
             },
 
-            clearCache(){
+            clearCache() {
                 this.clearCreate();
             }
         }

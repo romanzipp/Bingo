@@ -3,7 +3,7 @@
     <div>
 
         <h1>
-            {{ title }}
+            Create Game
         </h1>
 
         <div class="card">
@@ -14,7 +14,7 @@
 
             <div class="card-body">
 
-                <textarea v-model="text" id="" cols="30" rows="10" class="input" placeholder="Words"></textarea>
+                <textarea v-model="text" id="" cols="30" rows="10" class="input" placeholder="Foo"></textarea>
 
             </div>
 

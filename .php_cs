@@ -18,7 +18,7 @@ return PhpCsFixer\Config::create()
         'array_syntax' => ['syntax' => 'short'],
         'binary_operator_spaces' => true,
         'blank_line_before_statement' => ['statements' => ['break', 'continue', 'declare', 'return', 'throw', 'try']],
-        'braces' => false, // https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues/4487
+        'braces' => true, // https://github.com/FriendsOfPHP/PHP-CS-Fixer/issues/4487
         'class_attributes_separation' => ['elements' => ['method']],
         'compact_nullable_typehint' => true,
         'concat_space' => false,

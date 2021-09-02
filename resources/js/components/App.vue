@@ -16,6 +16,8 @@
 
         <Footer />
 
+        <script async defer data-website-id="74016cff-4d2a-4e40-ac20-a30c29be6971" src="https://u.ich.wtf/s.js"></script>
+
     </main>
 
 </template>

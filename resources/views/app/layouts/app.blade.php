@@ -8,6 +8,8 @@
 
     <link href="{{ manifest('css/app.css') }}" rel="stylesheet">
 
+    <script defer data-domain="bingo.ich.wtf" src="https://p.ich.wtf/js/script.js"></script>
+
 </head>
 <body>
 
